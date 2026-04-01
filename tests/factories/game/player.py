@@ -9,4 +9,5 @@ class PlayerFactory(Factory[Player]):
         model = Player
 
     id_ = IDSequence('ID')
+    user_id = IDSequence('UserID')
     name = NamedSequence('Player')

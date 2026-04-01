@@ -13,6 +13,8 @@ class PlayerStatus(StrEnum):
 
 
 class Player(Entity):
+    user_id: str
+
     name: str
     hand: list[Card] = Field(default_factory=list)
     status: PlayerStatus = PlayerStatus.IN_GAME

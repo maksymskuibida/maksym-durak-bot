@@ -1,14 +1,17 @@
+import string
 from typing import Any, Self
 
-import nanoid
+from bson import ObjectId
 from pydantic import Field, GetCoreSchemaHandler
 from pydantic_core import CoreSchema, core_schema
+
+ALPHABET = string.digits + string.ascii_letters
 
 
 class Id(str):
     @classmethod
     def create(cls) -> Self:
-        return cls(nanoid.generate())
+        return cls(str(ObjectId()))
 
     @classmethod
     def field(cls) -> Self:
